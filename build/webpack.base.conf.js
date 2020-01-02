@@ -1,12 +1,25 @@
+/*
+ * @Author: michael
+ * @Description: 
+ * @Date: 2019-12-31 10:58:05
+ * @LastEditors  : michael
+ * @LastEditTime : 2019-12-31 15:02:43
+ */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
+
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+})
 
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
@@ -74,9 +87,24 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
+      },
+      {
+        test: /\.scss$/,
+        use: extractSass.extract({
+            use: [{
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader"
+            }],
+            // 在开发环境使用 style-loader
+            fallback: "style-loader"
+        })
       }
     ]
   },
+  plugins: [
+    extractSass
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).
