@@ -3,7 +3,37 @@
  * @Description: 全局scss变量
  * @Date: 2019-12-31 14:11:04
  * @LastEditors  : michael
- * @LastEditTime : 2020-01-02 10:33:43
+ * @LastEditTime : 2020-01-03 14:02:04
  */
 
- $font: 14px;
+/* 布局 */
+$gap: 4px;
+
+/* 文本 */
+$font-size: 14px;
+
+/* 颜色 */
+$article-color: #000; // 正文
+$title-color: #000; // 标题
+$link-color: #00f; // 链接
+
+$success-color: #0f0; // 成功
+$warning-color: #e6a23c; // 警告
+$danger-color: #f56c6c; // 失败
+$exception-color: red; // 异常
+$normal-color: #000; // 正常
+
+
+/* 尺寸 */
+// 弹框尺寸
+$mini-model: 300px;
+$small-model: 500px;
+$medium-model: 700px;
+$large-model: 900px;
+
+
+
+
+
+
+

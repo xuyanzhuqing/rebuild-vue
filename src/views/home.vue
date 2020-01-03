@@ -1,19 +1,11 @@
-<!--
- * @Author: michael
- * @Date: 2019-12-31 10:58:05
- * @LastEditors  : michael
- * @LastEditTime : 2020-01-03 11:03:28
- -->
-
 <template>
   <div>
-    home
     <dntTable :column="columns7" :data="data6"/>
-    <div class="icon ico-4"></div>
+    <el-button type="primary">111</el-button>
   </div>
 </template>
 <script>
-import dntTable from '@/components/el-table'
+import dntTable from '@/components/biz/dnt-table'
 export default {
   components: {dntTable},
   data () {
@@ -21,7 +13,22 @@ export default {
       columns7: [
         {
           label: 'Name',
-          prop: 'name'
+          prop: 'name',
+          which: 'input',
+          jsx: {
+            on: {
+              change () {
+                debugger
+              }
+            },
+            style: {
+              color: 'red'
+            },
+            attrs: {
+              style: 'color: red',
+              size: 'mini'
+            }
+          }
         },
         {
           label: 'Age',
@@ -29,7 +36,27 @@ export default {
         },
         {
           label: 'Address',
-          prop: 'address'
+          prop: 'address',
+          which: 'select',
+          options: [{
+            value: 'Beijing',
+            label: '北京'
+          }, {
+            value: 'Shanghai',
+            label: '上海'
+          }, {
+            value: 'Nanjing',
+            label: '南京'
+          }, {
+            value: 'Chengdu',
+            label: '成都'
+          }, {
+            value: 'Shenzhen',
+            label: '深圳'
+          }, {
+            value: 'Guangzhou',
+            label: '广州'
+          }]
         },
         {
           label: 'Action',
@@ -47,22 +74,22 @@ export default {
         {
           name: 'John Brown',
           age: 18,
-          address: 'New York No. 1 Lake Park'
+          address: 'Beijing'
         },
         {
           name: 'Jim Green',
           age: 24,
-          address: 'London No. 1 Lake Park'
+          address: 'Shenzhen'
         },
         {
           name: 'Joe Black',
           age: 30,
-          address: 'Sydney No. 1 Lake Park'
+          address: 'Chengdu'
         },
         {
           name: 'Jon Snow',
           age: 26,
-          address: 'Ottawa No. 2 Lake Park'
+          address: 'Shanghai'
         }
       ]
     }

@@ -99,15 +99,13 @@ export default {
       return col
     },
     column () {
-      const me = this
-      let {column = []} = me.$attrs
-      const {radio, enableFilters, filterCol, radioCol} = me
+      const {radio, enableFilters, filterCol, radioCol} = this
       const result = []
 
       if (radio) {
         result.push(radioCol)
       }
-      result.push(...column)
+      result.push(...this.turnColumn())
 
       if (enableFilters) {
         result.push(filterCol)
@@ -116,6 +114,10 @@ export default {
     }
   },
   methods: {
+    turnColumn () {
+      let {column = []} = this.$attrs
+      return column
+    },
     // 清除选中效果
     clearRadioValue () {
       this.radioValue = null

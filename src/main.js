@@ -9,7 +9,7 @@ import bus from './bus'
 import utils from '@/utils'
 import '@/derective'
 
-import '@/assets/sass/reset.css'
+import '@/assets/sass/index.scss'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false

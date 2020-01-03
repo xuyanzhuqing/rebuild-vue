@@ -3,7 +3,7 @@
  * @Description: 
  * @Date: 2019-12-31 10:58:05
  * @LastEditors  : michael
- * @LastEditTime : 2020-01-03 11:21:02
+ * @LastEditTime : 2020-01-03 13:31:17
  */
 'use strict'
 const path = require('path')
@@ -117,18 +117,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      },
-      {
-        test: /\.scss$/,
-        use: extractSass.extract({
-            use: [{
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader"
-            }],
-            // 在开发环境使用 style-loader
-            fallback: "style-loader"
-        })
       }
     ]
   },
