@@ -1,6 +1,12 @@
 # vue-phegdata
 
 > this is a commercial monitor plantform
+- vue + vuex + elementUI
+- 自带vue bus全局事件总线
+- 自动编译指令、工具文件
+- 支持自动编译精灵图
+
+
 
 ## Build Setup
 
