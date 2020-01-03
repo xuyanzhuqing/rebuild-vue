@@ -2,12 +2,14 @@
  * @Author: michael
  * @Date: 2019-12-31 10:58:05
  * @LastEditors  : michael
- * @LastEditTime : 2020-01-02 15:05:04
+ * @LastEditTime : 2020-01-03 11:03:28
  -->
 
 <template>
-  <div>home
+  <div>
+    home
     <dntTable :column="columns7" :data="data6"/>
+    <div class="icon ico-4"></div>
   </div>
 </template>
 <script>

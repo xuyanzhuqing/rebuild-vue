@@ -3,7 +3,7 @@
  * @Description: 
  * @Date: 2019-12-31 10:58:05
  * @LastEditors  : michael
- * @LastEditTime : 2019-12-31 15:02:43
+ * @LastEditTime : 2020-01-03 11:21:02
  */
 'use strict'
 const path = require('path')
@@ -11,11 +11,13 @@ const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const SpritesmithPlugin = require('webpack-spritesmith')
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// 抽离样式到独立得文件
 const extractSass = new ExtractTextPlugin({
   filename: "[name].[contenthash].css",
   disable: process.env.NODE_ENV === "development"
@@ -29,6 +31,33 @@ const createLintingRule = () => ({
   options: {
     formatter: require('eslint-friendly-formatter'),
     emitWarning: !config.dev.showEslintErrorsInOverlay
+  }
+})
+
+// 精灵图配置
+const createSprite = new SpritesmithPlugin({
+  src: {
+      cwd: resolve('src/assets/sprites/ico'),
+      glob: '*.png'
+  },
+  target: {
+      image: resolve('src/assets/sprites/sprite.png'),
+      css: [
+        [
+          resolve('src/assets/sprites/index.scss'),
+          {
+            format: 'handlebars_based_template',
+            // 命名空间
+            spritesheetName: 'ico'
+          }
+        ]
+      ]
+  },
+  customTemplates: {
+    'handlebars_based_template': resolve('src/assets/sprites/scss.template.handlebars')
+  },
+  apiOptions: {
+      cssImageRef: "~sprite.png"
   }
 })
 
@@ -49,7 +78,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-    }
+    },
+    modules: ["node_modules", "./src/assets/sprites"]
   },
   module: {
     rules: [
@@ -103,6 +133,7 @@ module.exports = {
     ]
   },
   plugins: [
+    createSprite,
     extractSass
   ],
   node: {
