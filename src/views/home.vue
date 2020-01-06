@@ -3,12 +3,23 @@
     <dntTable :column="columns7" :data="data6"/>
     <el-button type="primary">111</el-button>
     <span>111</span>
+    <scrollList>
+      <template slot-scope="{value}">
+        <div>
+          {{value + 'q'}}
+        </div>
+      </template>
+    </scrollList>
   </div>
 </template>
 <script>
 import dntTable from '@/components/biz/dnt-table'
+import scrollList from '@/components/scroll-list'
 export default {
-  components: {dntTable},
+  components: {
+    dntTable,
+    scrollList
+  },
   data () {
     return {
       columns7: [
