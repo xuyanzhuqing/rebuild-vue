@@ -1,10 +1,17 @@
+/*
+ * @Author: michael
+ * @Description: 
+ * @Date: 2019-12-31 10:58:05
+ * @LastEditors: michael
+ * @LastEditTime: 2020-01-03 17:21:04
+ */
 // For authoring Nightwatch tests, see
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
   'default e2e tests': function (browser) {
     // automatically uses dev Server port from /config.index.js
-    // default: http://localhost:8080
+    // yar: http://localhost:8080
     // see nightwatch.conf.js
     const devServer = browser.globals.devServerURL
 

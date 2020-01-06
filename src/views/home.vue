@@ -2,6 +2,7 @@
   <div>
     <dntTable :column="columns7" :data="data6"/>
     <el-button type="primary">111</el-button>
+    <span>111</span>
   </div>
 </template>
 <script>
@@ -17,9 +18,7 @@ export default {
           which: 'input',
           jsx: {
             on: {
-              change () {
-                debugger
-              }
+              change () {}
             },
             style: {
               color: 'red'
