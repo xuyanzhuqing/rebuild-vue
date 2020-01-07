@@ -3,13 +3,7 @@
     <dntTable :column="columns7" :data="data6"/>
     <el-button type="primary">111</el-button>
     <span>111</span>
-    <scrollList>
-      <template slot-scope="{value}">
-        <div>
-          {{value + 'q'}}
-        </div>
-      </template>
-    </scrollList>
+    <scrollList/>
   </div>
 </template>
 <script>
@@ -22,6 +16,7 @@ export default {
   },
   data () {
     return {
+      list: [],
       columns7: [
         {
           label: 'Name',

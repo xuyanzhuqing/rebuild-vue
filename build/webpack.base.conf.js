@@ -1,10 +1,3 @@
-/*
- * @Author: michael
- * @Description: 
- * @Date: 2019-12-31 10:58:05
- * @LastEditors  : michael
- * @LastEditTime : 2020-01-03 13:31:17
- */
 'use strict'
 const path = require('path')
 const utils = require('./utils')
@@ -64,7 +57,9 @@ const createSprite = new SpritesmithPlugin({
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: {
-    app: './src/main.js'
+    // app: './src/main.js'
+    // 兼容ie
+    app: ['babel-polyfill', './src/main.js']
   },
   output: {
     path: config.build.assetsRoot,

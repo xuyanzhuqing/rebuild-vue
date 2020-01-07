@@ -7,6 +7,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import bus from './bus'
 import utils from '@/utils'
+import 'babel-polyfill'
 import '@/derective'
 
 import '@/assets/sass/index.scss'
